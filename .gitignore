@@ -1,0 +1,10 @@
+# Eclipse/STS 설정 파일 제외
+.metadata/
+RemoteSystemsTempFiles/
+*.tmp
+*.bak
+
+# 컴파일된 결과물 제외 (소스코드만 올리기 위함)
+bin/
+build/
+target/

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+* {
+	padding : 0px;
+	margin : 0px;
+}
+
+body {
+	display : flex;
+	flex-direction:column;
+	height:100%;
+	min-height:100vh;
+}
+
+header {
+	background-color:green;
+}
+
+h1 {
+	color:white;
+	text-align:center;
+}
+
+nav {
+	background-color:beige;
+	text-align:center;
+}
+
+a {
+	text-decoration:none;
+	color:black;
+}
+
+footer {
+	background-color:green;
+	color:white;
+	text-align:center;
+	height : 60px;
+}
+
+section {
+	text-align:center;
+	display:flex;
+	flex-direction:column;
+	justify-self:center;
+	flex: 1;
+	
+}
+
+#tbl {
+	display:flex;
+	flex-direction:column;
+	justify-self:center;
+}
