@@ -48,6 +48,14 @@ public class DB {
 		Member member = jdbc.queryForObject(query, new BeanPropertyRowMapper<Member>(Member.class), m.getId(), m.getPw());
 		return member;
 	}
+	
+	// 내 정보 수정
+	public int updateInfo(Member m) {
+		String query = "update mypage_member set pw = ?, name = ? where id = ?";
+		int result = jdbc.update(query, m.getPw(), m.getName(), m.getId());
+		return result;
+		
+	}
 		
 	// post 작성
 	public int getLength() {
@@ -128,6 +136,15 @@ public class DB {
 		result = jdbc.update(query, index, name, commentt);
 		return result;
 	}
+	
+	// 내가 작성한 글 가져오기
+	public List<Post> getMyPost(String id) {
+		String query = "select * from mypage_post where id = ?";
+		List<Post> list = jdbc.query(query, new BeanPropertyRowMapper<Post>(Post.class), id);
+		return list;
+	}
+	
+	
 	
 	
 }

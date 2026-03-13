@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,26 +49,49 @@
 </style>
 </head>
 <body>
+
 	<header>
 		<img src="images/main.png"><h1>이진이 놀이터</h1>
 	</header>
 	
 	<nav>
 		<a href="getPost?pagee=1">홈</a>
-		<a href="GetMyPost">마이페이지</a>
+		<a href="getMyPost">마이페이지</a>
 		<a href="doLogout">로그아웃</a>
 	</nav>
 	
-	<hr>
-	<br>
-	<main>
-		<form action="doUpPost" method="post" id="form">
-			글 번호<input type="text" name="indexx" value="${post.indexx }" readonly>
-			제목<input type="text" class="long" name="post_title" value="${post.post_title}"><br>
-			내용<input type="text" id="long" class="long" name="post_content" value="${post.post_content}"><br>
-			<input type="submit" value="수정 완료">
-		</form>
-	</main>
+	<%
+		HttpSession s = request.getSession();
+	%>
+	<div>
+		<h2>아이디 : <%=s.getAttribute("id") %></h2>
+		<h2>이름 : <%=s.getAttribute("name") %></h2>
+		<a href="goUpdateInfo">내 정보 변경</a>
+	</div>
+	
+	
+	<table id="tbl">
+		<h3>내가 쓴 글</h3>
+		<tr>
+			<th>제목</th>
+			<th>날짜</th>
+		</tr>
+		
+		<c:forEach var="list" items="${list  }">
+		<tr>
+			<td id="${list.indexx}">${list.post_title }</td>
+			<td id="${list.indexx}">${list.post_date }</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
+	<script>
+	const tbl = document.querySelector("#tbl");
+	
+	tbl.addEventListener("click", (e) => {
+		location.replace("getDetail?indexx="+e.target.id);
+	})
+	</script>
 	
 </body>
 </html>

@@ -41,7 +41,7 @@
 </head>
 <body>
 	<header>
-		<img src="images/main.png"><h1>이진이 놀이터</h1>
+		<img src="main.png"><h1>이진이 놀이터</h1>
 	</header>
 	<br>
 	<hr>

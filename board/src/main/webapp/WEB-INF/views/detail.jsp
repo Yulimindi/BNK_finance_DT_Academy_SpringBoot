@@ -68,9 +68,9 @@
 	</header>
 	
 	<nav>
-		<a href="GetTableServlet?page=1">홈</a>
-		<a href="GetMyPost">마이페이지</a>
-		<a href="LogoutServlet">로그아웃</a>
+		<a href="getPost?pagee=1">홈</a>
+		<a href="getMyPost">마이페이지</a>
+		<a href="doLogout">로그아웃</a>
 	</nav>
 	
 	<hr>

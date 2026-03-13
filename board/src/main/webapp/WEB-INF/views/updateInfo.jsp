@@ -58,16 +58,15 @@
 		<a href="doLogout">로그아웃</a>
 	</nav>
 	
-	<hr>
-	<br>
-	<main>
-		<form action="doUpPost" method="post" id="form">
-			글 번호<input type="text" name="indexx" value="${post.indexx }" readonly>
-			제목<input type="text" class="long" name="post_title" value="${post.post_title}"><br>
-			내용<input type="text" id="long" class="long" name="post_content" value="${post.post_content}"><br>
-			<input type="submit" value="수정 완료">
-		</form>
-	</main>
-	
+	<%
+		HttpSession s = request.getSession();
+	%>
+		
+	<form action="updateInfo" method="post">
+		<input type="text" name="id" value="<%=s.getAttribute("id")%>" readonly>
+		<input type="text" name="pw" value="<%=s.getAttribute("pw")%>">
+		<input type="text" name="name" value="<%=s.getAttribute("name")%>">
+		<input type="submit">
+	</form>
 </body>
 </html>

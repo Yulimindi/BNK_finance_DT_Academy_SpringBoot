@@ -5,7 +5,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style>
+	header {
+		text-align : center;
+	}
+	
+	*{
+		margin : 0px;
+		padding : 0px;
+	}
+
+	img {
+		
+		height : 100px;
+		width : 100px;
+	}
+	
+	a {
+		text-decoration : none;
+		color : black;
+	}
+	
+	nav {
+		text-align : right;
+		margin-right : 2%;
+	}
+	
+	main {
+		margin-left: 30%;
+		margin-right: 30%;
+		text-align : center;
+	}
+	
+	#long {
+		height : 300px;
+	}
+	
+	.long {
+		width : 100%;
+	}
 	button {
 		display : inline;
 	}
@@ -15,6 +54,12 @@
 </style>
 </head>
 <body>
+	<header>
+		<img src="images/main.png"><h1>이진이 놀이터</h1>
+	</header>
+	<br>
+	<hr>
+	<br>
 	<h2>회원가입</h2>
 	<form action="doJoin" method="post" id="form">
 		<input type="text" name="id" id="id" placeholder="사용하실 아이디를 입력해주세요">

@@ -55,6 +55,12 @@ public class MyController {
 		return "updatePost";
 	}
 	
+	@RequestMapping("/goUpdateInfo")
+	public String goUpdateInfo() {
+		return "updateInfo";
+	}
+	
+	
 	// ========== 회원가입 ==========
 	@PostMapping("doJoin")
 	public String doJoin(Member m, Model model) {
@@ -92,37 +98,48 @@ public class MyController {
 			session.setAttribute("pw", member.getPw());
 			session.setAttribute("name", member.getName());
 			return "redirect:/getPost?pagee=1";
-		}
-		
+		}	
+	}
+	
+	// ========== 로그아웃 ==========
+	@GetMapping("/doLogout")
+	public String doLogout(HttpSession session) {
+		System.out.println("doLogout 진입");
+		session.removeAttribute("id");
+		session.removeAttribute("pw");
+		session.removeAttribute("name");
+		return "index";
 	}
 	
 	// ========== 게시글 가져오기(전체) ==========
 	@GetMapping("/getPost")
 	public String getPost(@RequestParam("pagee") String pagee, Model model) {
-		System.out.println("getPost 진입");
 		int len = db.getLength();
-		System.out.println("getPost len : " + len);
-		System.out.println("getPost pagee : " + pagee);
+		String lenn = Integer.toString(len);
+		
+		if(0 <= len && len <= 9) {
+			len = len/10+1;
+		} else if(lenn.endsWith("0")) {
+			len = len/10;
+		} else {
+			len = len/10+1;
+		}
 		if(pagee == "1") {
-			System.out.println("controller : doLogin : page : 1");
 			List<Post> list = db.getPost(1);
-			len = len / 10 + 1;
+			
 			model.addAttribute("len", len);
 			model.addAttribute("list", list);
 			return "post";
 		} else {
-			System.out.println("controller : doLogin : page : else");
 			pagee += "0";
 			int page = Integer.parseInt(pagee);
 			page -= 10;
 			List<Post> list = db.getPost(page);
-			len = len / 10 + 1;
+			
 			model.addAttribute("len", len);
 			model.addAttribute("list", list);
 			return "post";
 		}
-		
-		
 	}
 	
 	// ========== 게시글 작성 ==========
@@ -179,6 +196,23 @@ public class MyController {
 			db.deleteComment(index, name, commentt);
 		}
 		return "redirect:/getDetail?indexx="+index;
+	}
+	
+	// ========== 내가 쓴 글 가져오기 ==========
+	@GetMapping("/getMyPost")
+	public String getMyPost(HttpSession session, Model model) {
+		List<Post> list = db.getMyPost((String) session.getAttribute("id"));
+		model.addAttribute("list", list);
+		return "myPage";
+	}
+	
+	// ========== 내 정보 수정 ==========
+	@PostMapping("/updateInfo")
+	public String updateInfo(Member m, HttpSession session) {
+		db.updateInfo(m);
+		session.setAttribute("pw", m.getPw());
+		session.setAttribute("name", m.getName());
+		return "redirect:/getMyPost";
 	}
 	
 }

@@ -50,6 +50,12 @@
 	<header>
 		<img src="images/main.png"><h1>이진이 놀이터</h1>
 	</header>
+	
+	<nav>
+		<a href="getPost?pagee=1">홈</a>
+		<a href="getMyPost">마이페이지</a>
+		<a href="doLogout">로그아웃</a>
+	</nav>
 
 	<hr>
 	<br>
