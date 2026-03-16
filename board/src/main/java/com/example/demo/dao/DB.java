@@ -11,7 +11,6 @@ import com.example.demo.dto.Comment;
 import com.example.demo.dto.Member;
 import com.example.demo.dto.Post;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpSession;
 
 @Repository
