@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>ex02 페이지</h1>
+	<hr>
+	<a th:href="@{/}">인덱스 페이지로 돌아가기</a><br>
+	<br>
+	<table border=1>
+		<tr>
+			<th>index</th>
+			<th>count</th>
+			<th>pno</th>
+			<th>pName</th>
+			<th>price</th>
+			
+			<th>format(가격)</th>
+			<th>format(숫자)</th>
+			<th>format(소수점)</th>
+			<th>format(소수점, 콤마)</th>
+		</tr>
+		
+		<tbody>
+			<tr th:each="lists, status : ${list}">
+				<td th:text="${status.index}"></td>
+				<td th:text="${status.count}"></td>
+				<td th:text="${lists.pno}"></td>
+				<td th:text="${lists.pName}"></td>
+				<td th:text="${lists.price}"></td>
+				
+				<td th:text="${#numbers.formatCurrency(lists.price)}"></td>
+				<td th:text="${#numbers.formatInteger(lists.price, 3, 'COMMA')}"></td>
+				<td th:text="${#numbers.formatDecimal(lists.price, 1, 2)}"></td>
+				<td th:text="${#numbers.formatDecimal(lists.price, 1, 'COMMA', 2, 'POINT')}"></td>			
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

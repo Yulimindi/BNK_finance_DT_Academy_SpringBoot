@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인덱스 페이지</h1>
+	<hr>
+	<a href="/registForm">regist form으로 가기</a>
+	<a href="/members">멤버 가져오기</a>
+	
+	<h2>검색</h2>
+	
+	<form action="/member" method="post">
+		mno : <input type="text" name="id">
+		<input type="submit" value="검색">
+	</form>
+	
+</body>
+</html>

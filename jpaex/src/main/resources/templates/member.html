@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Member Page ([[${count}]])</h1>
+	<hr>
+	<a th:href="@{/}">인덱스 페이지로 돌아가기</a><br>
+	
+	<th:block th:if="${member != null}">
+	결과 아이디 : <p th:text="${member.id}"></p>
+	결과 비밀번호 : <p th:text="${member.pw}"></p>
+	결과 이름 : <p th:text="${member.name}"></p>
+	</th:block>
+	<br>
+	<hr>
+	<br>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="member : ${members}">
+				<td><a th:href="@{/detail(mno=${member.mno})}">[[${member.id}]]</a></td>
+				<td><a th:href="@{/delete(mno=${member.mno})}">삭제</a></td>
+			</tr>
+		</tbody>
+	
+	</table>
+	
+	
+</body>
+</html>

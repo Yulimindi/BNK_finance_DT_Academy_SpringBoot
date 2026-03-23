@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<th:block layout:fragment="script">
+	<script>
+		console.log("흠냐");
+	</script>
+</th:block>
+<th:block layout:fragment="css">
+	<style>
+		p {
+			color : green;
+		}
+	</style>
+</th:block>
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<hr>
+	<div layout:fragment="content" class="content"></div>
+	<div layout:fragment="content2" class="content2"></div>
+	<hr>
+	<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

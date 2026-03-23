@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>ex04 페이지</h1>
+	<hr>
+	<a th:href="@{/}">인덱스 페이지로 돌아가기</a><br>
+	<br>
+	<table border=1>
+		<tr>
+			<th>index</th>
+			<th>pno</th>
+			<th>pName</th>
+			<th>price</th>
+			<th>가격평가</th>
+			<th>등급</th>
+			<th>가격평가2</th>
+		</tr>
+		
+		<tbody>
+			<tr th:each="lists, status : ${list}">
+				<td th:switch="${status.even}">
+					<span th:case=true>짝수</span>
+					<span th:case=false>홀수</span>
+				</td>
+				<td th:text="${lists.pno}"></td>
+				<td th:text="${lists.pName}"></td>
+				<td th:text="${lists.price}"></td>		
+				<td th:if="${lists.price} <= 500" th:text="싸용"></td>
+				<td th:unless="${lists.price} <= 500" th:text="비싸용"></td>
+				<td th:switch="${lists.price}">
+					<span th:case="1000">A</span>
+					<span th:case="500">B</span>
+					<!-- <span th:case="*">C</span> -->
+				</td>
+				<td th:switch="true">
+					<!-- 더 크면 gt 또는 lt 더 작으면 ge 또는 le -->
+					<span th:case="${lists.price le 500}">500원 이하입니다.</span>
+					<span th:case="${lists.price le 1000}">1000원 이하입니다.</span>
+					<span th:case="*">500원 미만입니다.</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

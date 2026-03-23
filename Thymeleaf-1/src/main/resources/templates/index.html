@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인덱스 페이지</h1>
+	<hr>
+	<p th:text="${greet}"></p>
+	<a th:href="@{/ex01}">ex01 page</a>
+	<a th:href="@{/ex02}">ex02 page</a>
+	<a th:href="@{/ex03}">ex03 page</a>
+	<a th:href="@{/ex04}">ex04 page</a>
+	<a th:href="@{/ex05(param='데이터', param2='데이터2')}">ex05 page(with Parameter)</a>
+	<div>
+		<form th:action="@{/ex05}" method="post">
+			<input type="text" name="param" th:value="폼데이터1"><br>
+			<input type="text" name="param2" th:value="폼데이터2"><br>
+			<input type="submit" value="전송">
+		</form>
+	</div>
+	<hr>
+	<a th:href="@{/ex(param='1')}">ex02 page</a>
+	<a th:href="@{/ex(param='2')}">ex03 page</a>
+	<a th:href="@{/ex(param='3')}">ex04 page</a>
+	
+</body>
+</html>

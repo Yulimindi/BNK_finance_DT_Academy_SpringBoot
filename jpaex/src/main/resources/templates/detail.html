@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:if="${member != null}">
+		<form th:action="@{/update}" method="post" th:object="${member}">
+			mno<input type="text" th:field="*{mno}" readonly>
+			id<input type="text" th:field="*{id}" readonly>
+			pw<input type="text" th:field="*{pw}">
+			name<input type="text" th:field="*{name}">
+			<input type="submit" value="변경">
+		</form>
+	</th:block>
+</body>
+</html>

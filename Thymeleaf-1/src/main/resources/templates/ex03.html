@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>ex03 페이지</h1>
+	<hr>
+	<a th:href="@{/}">인덱스 페이지로 돌아가기</a><br>
+	<br>
+	<table border=1>
+		<tr>
+			<th>index</th>
+			<th>pno</th>
+			<th>pName</th>
+			<th>price</th>
+			<th>가격평가</th>
+		</tr>
+		
+		<tbody>
+			<tr th:each="lists, status : ${list}">
+				<td th:if="${status.even}" th:text="짝수"></td>
+				<td th:unless="${status.even}" th:text="홀수"></td>
+				<td th:text="${lists.pno}"></td>
+				<td th:text="${lists.pName}"></td>
+				<td th:text="${lists.price}"></td>			
+				<td th:if="${lists.price} <= 500" th:text="싸용"></td>
+				<td th:unless="${lists.price} <= 500" th:text="비싸용"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>ex01 페이지에용</h1>
+	<hr>
+	<a th:href="@{/}">인덱스 페이지로 돌아가기</a><br>
+	번호 : <span th:text="${info.pno}"></span><br>
+	제품명 : <span th:text="${info.pName}"></span><br>
+	가격 : <span th:text="${info.price}"></span><br>
+	<hr>
+	Object 사용하기<br>
+	<p th:object="${info}">
+		<span th:text="*{pName}"></span>
+	</p>
+	<hr>
+	
+	form에 object 사용하기<br>
+	<form th:action="@{/ex06}" method="post" th:object="${info}">
+		<input type="text" th:field="*{pName}"><br>
+		<input type="text" th:field="*{price}"><br>
+		<input type="checkbox" name="open" id="open">
+		<label for="open">판매 여부</label>
+		<button type="submit">Send</button>
+	</form>
+	
+	form에 object 사용하기2<br>
+	<form th:action="@{/ex06}" method="post" th:object="${info}">
+		<input type="text" th:field="*{pName}"><br>
+		<input type="text" th:field="*{price}"><br>
+		<input type="checkbox" th:field="*{open}">
+		<label th:for="${#ids.prev('open')}">판매 여부</label>
+		<button type="submit">Send</button>
+	</form>
+	<hr>
+</body>
+</html>

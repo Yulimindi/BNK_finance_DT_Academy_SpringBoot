@@ -41,10 +41,11 @@ public class MyController {
 	public @ResponseBody String getFile(@RequestParam("id") String id) {
 		FileEntity entity = file.get(id);
 		String name = entity.getSavedName();
-		
 		String path = entity.getFilePath();
+		System.out.println("path : " + path);
 		path = path.replace("C:", "");
 		String realPath = path + name;
+		System.out.println("realpath : " + realPath);
 		return realPath;
 	}
 	

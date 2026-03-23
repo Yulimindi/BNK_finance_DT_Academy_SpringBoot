@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+h1 {
+	color : green;
+}
+
+.content {
+	color : pink;
+}
+
+.content2 {
+	color : skyblue;
+}
+
+h3 {
+	background-color : skyblue;
+	color: white;
+}

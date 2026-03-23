@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-description = 'Demo project for Spring Boot'
+description = 'MybatisPrj project for Spring Boot'
 
 java {
 	toolchain {
@@ -25,7 +25,11 @@ repositories {
 }
 
 dependencies {
+
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:4.0.0'
+
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.1'
 	compileOnly 'org.projectlombok:lombok'
@@ -33,16 +37,10 @@ dependencies {
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-jdbc-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:4.0.1'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	
-	// JSP 엔진 추가 (이게 없으면 JSP 실행을 못 합니다)
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-
-    // JSP에서 <c:if> 같은 태그 라이브러리를 쓰려면 필요합니다
-    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
-    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
 }
 
 tasks.named('test') {
