@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h2>🌱 새싹 등록</h2>
+        
+        <form id="signup-form" th:action="@{/doSignup}" method="post">
+        	<div class="id-check-group">
+                <input type="text" name="username" id="username" class="input-field" placeholder="사용할 아이디" required>
+                <button type="button" id="check-id-btn" class="btn-check" onclick="check()">중복 확인</button>
+            </div>
+            <p id="id_msg" class="status-msg"></p>
+            <input type="password" name="pw" class="input-field" placeholder="비밀번호" required>
+            <input type="text" name="nickname" class="input-field" placeholder="이름" required>
+
+            <button type="submit" class="btn-forest" style="background: var(--accent-green);">
+                회원가입 완료
+            </button>
+        </form>
+
+        <p style="font-size: 0.8rem; margin-top: 15px;">
+            <a href="login.html" style="color: #999; text-decoration: none;">이미 계정이 있어요</a>
+        </p>
+    </div>
+</div>
+<script>
+
+let state = false;
+let form = document.querySelector("#signup-form");
+function check() {
+	const id = document.querySelector("#username");
+	const id_msg = document.querySelector("#id_msg");
+	if(id != null) {
+		form = document.querySelector("#signup-form");
+		const formData = new FormData(form);
+		
+		fetch("/checkId", {
+			method : "post",
+			body : formData
+		})
+		.then(data => data.text())
+		.then(data => {
+			console.log(data);
+			if(data == "true") {
+				id_msg.innerHTML = "사용 가능한 아이디입니다.";
+				state = true;
+			} else {
+				id_msg.innerHTML = "중복된 아이디입니다.";
+				state = false;
+			}
+		})
+		
+	} else {
+		id_msg.innerHTML = "아이디를 입력해주세요.";
+	}
+}
+
+form.addEventListener("submit", (e) => {
+	if(state == false) {
+		console.log("불가능");
+		e.preventDefault();
+	}
+})
+
+</script>
+</body>
+</html>

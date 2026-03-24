@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="board-header" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; align-items: center; background: white; padding: 10px 25px; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+    <span style="font-weight: bold; color: var(--primary-forest);">Forest Board</span>
+    <button id="add-btn" style="background: var(--primary-forest); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer;">+ 메모 심기</button>
+    <button onclick="location.href='login.html'" style="background: none; border: 1px solid #ddd; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem;">로그아웃</button>
+</div>
+
+<div id="board" style="width: 100vw; height: 100vh; position: relative;">
+    <div class="sticky-note" style="top: 150px; left: 100px; background-color: #dff9fb;">
+        <p>푸릇푸릇한 메모장입니다! 🌿</p>
+    </div>
+</div>
+
+<div id="memo-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span>🌱 새 메모 심기</span>
+            <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <form class="modal-body" id="form">
+        	<input type="hidden" id="pos-x" name="posX">
+			<input type="hidden" id="pos-y" name="posY">
+        	<input type="text" id="memo-title" name="title" placeholder="메모 제목" required><br>
+            <textarea id="memo-text" name="content" placeholder="메모 내용" required></textarea>
+            
+            <div class="modal-footer">
+                <button type="button" id="submit-memo" class="btn-forest">심기 완료</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+let form = document.getElementById('form');
+document.getElementById('submit-memo').addEventListener("click", () => {
+	form = document.getElementById('form');
+	const formData = new FormData(form);
+	
+	fetch("/createMemo", {
+		method : "post",
+		body : formData
+	})
+	.then(data => data.json())
+	.then(data => {
+		modal.style.display = 'none';
+		console.log(data);
+	})
+})
+
+const modal = document.getElementById('memo-modal');
+const addBtn = document.getElementById('add-btn');
+const closeBtn = document.getElementById('close-modal');
+const submitBtn = document.getElementById('submit-memo');
+const board = document.getElementById('board');
+
+// 클릭 대기
+let isAddMode = false; // 현재 메모 심을 위치를 고르고 있나?
+let pendingX = 0;
+let pendingY = 0;
+
+// 보드 클릭 시 모달 띄우기
+addBtn.addEventListener('click', () => {
+	isAddMode = true;
+	board.style.cursor = 'crosshair'; // 마우스 커서 + 모양으로 변경
+	alert("🌿 메모를 심을 위치를 보드 위에서 클릭해주세요!");
+})
+
+// 보드 클릭 시 (메모 위치 결정)
+board.addEventListener('click', (e) => {
+	// 심기 모드일 경우, 보드를 클릭했을 경우 (메모를 제외하고)
+	if(isAddMode && e.target.id === 'board') {
+		pendingX = e.clientX;
+		pendingY = e.clientY;
+		
+		modal.style.display = 'flex'; // 모달 띄우기
+		document.getElementById('memo-text').focus();
+		
+		document.getElementById('pos-x').value = pendingX;
+		document.getElementById('pos-y').value = pendingY;
+		
+		isAddMode = false;
+		board.style.cursor = 'default';
+	}
+})
+
+closeBtn.addEventListener('click', () => {
+	modal.style.display = 'none';
+})
+
+// --------------- 클릭한 메모지 가장 앞으로 오게 ----------------
+// 현재 화면에서 가장 높은 z-index를 추적할 변수
+let highestZIndex = 100; 
+
+// 모든 메모지에게 클릭 이벤트를 부여하는 함수 (새 메모 생성 시에도 호출 필요)
+function makeFrontable(noteElement) {
+    noteElement.addEventListener('mousedown', function() {
+        // 1. 숫자를 하나 올리고
+        highestZIndex++;
+        
+        // 2. 클릭한 메모지의 z-index를 최신화!
+        this.style.zIndex = highestZIndex;
+        
+        // 3. (선택사항) 다른 메모지들의 active 클래스 제거 후 현재꺼만 추가
+        document.querySelectorAll('.sticky-note').forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+        
+        console.log("이 메모지가 숲에서 가장 위로 올라왔습니다! 🌿");
+    });
+}
+
+// 처음 페이지 로딩 시 기존 메모지들에 적용
+document.querySelectorAll('.sticky-note').forEach(note => {
+    makeFrontable(note);
+});
+
+</script>
+</body>
+</html>

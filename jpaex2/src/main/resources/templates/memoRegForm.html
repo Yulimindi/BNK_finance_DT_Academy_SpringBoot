@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Memo Regist Form</h1>
+	<hr>
+	
+	<th:block th:if="${session.username} != null">
+		<form th:action="@{/memoRegist}" method="post">
+			메시지<input type="text" name="message">
+			작성자<input type="text" name="writer" th:value="${session.username}" readonly>
+			<input type="submit" value="메모 생성">
+		</form>
+	</th:block>
+	
+	<th:block th:if="${session.username} == null">
+		글쓰기를 위해서는 로그인이 필요합니다.
+		<a th:href="@{/loginForm}">로그인하러 가기</a><br>
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>MemoList Page</h1>
+	<hr>
+	<th:block th:if="${memoList != null}">
+		<table>
+			<thead>
+				<tr>
+					<th>mno</th><th>msg</th><th>writer</th><th>regdate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="memo : ${memoList}">
+					<td>[[${memo.mno}]]</td>
+					<td>[[${memo.message}]]</td>
+					<td>[[${memo.member.username}]]</td>
+					<td>[[${memo.regDate}]]</td>
+				</tr>
+			</tbody>
+		</table>
+	</th:block>
+	<h3 th:unless="${memoList != null}">메모가 없습니다. 지금 바로 작성하세요!</h3>
+	
+	<a th:href="@{/memoRegForm}">글쓰기</a>
+	<a th:href="@{/logout}">로그아웃</a>
+	
+</body>
+</html>

@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+:root {
+    --primary-forest: #27ae60;
+    --light-leaf: #ebf5ee;
+    --accent-green: #2ecc71;
+    --bg-soft: #f0f4f1;
+    --text-dark: #2c3e50;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--bg-soft);
+    background-image: radial-gradient(#d1dbd3 1px, transparent 1px);
+    background-size: 25px 25px;
+    color: var(--text-dark);
+}
+
+/* 인증 카드 공통 (로그인/회원가입) */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-card {
+    width: 360px;
+    background: white;
+    padding: 40px;
+    border-radius: 30px; /* 둥글둥글한 느낌 */
+    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.1);
+    border: 2px solid var(--light-leaf);
+    text-align: center;
+}
+
+h2 { color: var(--primary-forest); margin-bottom: 25px; }
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1.5px solid #e0eadd;
+    border-radius: 12px;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-field:focus { border-color: var(--accent-green); box-shadow: 0 0 8px rgba(46, 204, 113, 0.2); }
+
+.btn-forest {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-forest);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-forest:hover { background: var(--accent-green); }
+
+/* 메모지 스타일 */
+.sticky-note {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    padding: 15px;
+    border-radius: 0 0 20px 0; /* 기존: 접힌 느낌 유지 */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.08); /* 기본 그림자 */
+    display: flex;
+    flex-direction: column;
+    
+    /* 여기서부터 추가/수정된 부분 */
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 눌렀을 때 부드러운 반응 */
+    z-index: 1; 
+    overflow: hidden; /* 글자가 넘치지 않게 */
+}
+
+/* 마우스를 올렸을 때 (살짝 뜨는 효과) */
+.sticky-note:hover {
+    transform: translateY(-5px); /* 살짝 위로 뜸 */
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.12); /* 그림자 진해짐 */
+}
+
+/* 클릭해서 맨 앞으로 왔을 때 (강조하고 싶다면) */
+.sticky-note.active {
+    border: 1.5px solid var(--primary-forest);
+    box-shadow: 12px 12px 30px rgba(39, 174, 96, 0.2);
+}
+
+.sticky-note textarea {
+    width: 100%; 
+    height: 100%; 
+    border: none; 
+    background: transparent; 
+    resize: none; 
+    outline: none;
+    cursor: pointer; /* 텍스트 영역도 클릭 가능하게 */
+    font-family: inherit;
+    color: #333;
+    line-height: 1.5;
+}
+/* 아이디 체크 그룹 레이아웃 */
+.id-check-group {
+    display: flex;
+    gap: 8px; /* 입력창과 버튼 사이 간격 */
+    align-items: center;
+}
+
+.id-check-group .input-field {
+    flex: 1; /* 입력창이 남은 공간을 다 차지함 */
+    margin: 5px 0;
+}
+
+/* 중복 확인 버튼 스타일 */
+.btn-check {
+    padding: 10px 12px;
+    background-color: white;
+    border: 1.5px solid var(--primary-forest);
+    color: var(--primary-forest);
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap; /* 글자 줄바꿈 방지 */
+    transition: 0.2s;
+}
+
+.btn-check:hover {
+    background-color: var(--light-leaf);
+}
+
+/* 안내 메시지 스타일 */
+.status-msg {
+    font-size: 0.75rem;
+    text-align: left;
+    margin: -5px 0 10px 5px;
+    min-height: 15px; /* 공간 확보 */
+}
+
+.status-msg.success { color: #27ae60; } /* 사용 가능 (초록) */
+.status-msg.error { color: #e74c3c; }   /* 사용 불가 (빨강) */
+
+/* 모달 전체 배경 (어둡게) */
+.modal-overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px); /* 배경 흐리게 */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 모달 박스 */
+.modal-content {
+    background: white;
+    width: 400px;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 3px solid var(--primary-forest);
+    animation: slideUp 0.3s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: var(--primary-forest);
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+
+/* 입력창 */
+#memo-title {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 15px;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    background-color: #fcfdfc;
+    box-sizing: border-box;
+}
+
+#memo-text {
+    width: 100%;
+    height: 150px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 15px;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    background-color: #fcfdfc;
+    box-sizing: border-box;
+}
+
+.modal-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.color-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+/* 모달 나타나는 애니메이션 */
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

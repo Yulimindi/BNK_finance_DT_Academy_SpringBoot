@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h2>🌿 다시 숲으로</h2>
+        
+        <th:block th:if="${result != null}">
+        	<p class="status-msg.error">아이디 또는 비밀번호가 틀렸습니다.</p>
+        </th:block>
+        
+        <form id="login-form" action="/doLogin" method="POST">
+            <div class="input-group">
+                <input type="text" name="username" class="input-field" placeholder="아이디" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="pw" class="input-field" placeholder="비밀번호" required>
+            </div>
+            
+            <button type="submit" class="btn-forest">입장하기</button>
+        </form>
+
+        <p style="font-size: 0.8rem; margin-top: 15px;">
+            처음이신가요? 
+            <a th:href="@{/signup}" style="color: var(--primary-forest); text-decoration: none; font-weight: bold;">
+                나무 심기(회원가입)
+            </a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
