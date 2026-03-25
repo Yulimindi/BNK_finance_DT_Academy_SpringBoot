@@ -22,8 +22,4 @@ public class MyController {
 		return "signup";
 	}
 	
-	@GetMapping("/board")
-	public String board() {
-		return "board";
-	}
 }

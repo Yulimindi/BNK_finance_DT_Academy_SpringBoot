@@ -45,6 +45,13 @@ public class MemberController {
 			return "redirect:/loginForm?fail=1";
 		}
 		session.setAttribute("username", member.getUsername());
+		
+		String redirectURL = (String) session.getAttribute("redirectURL");
+		System.out.println("로그인 후 원래 가려던" + redirectURL);
+		if(redirectURL != null || redirectURL.isBlank()) {
+			return "redirect:" + redirectURL;
+		}
+		
 		return "success";
 	}
 	

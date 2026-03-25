@@ -1,0 +1,13 @@
+package com.example.Thymeleaf;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class Jpaex3ApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

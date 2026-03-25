@@ -50,11 +50,13 @@ public class MemoEntity {
     private int posY;
 	
 	@Builder
-	public MemoEntity(String title, String content, String writer) {
+	public MemoEntity(String title, String content, String writer, int posX, int posY) {
 		member = new MemberEntity();
 		this.title = title;
 		this.content = content;
 		this.member.setUsername(writer);
+		this.posX = posX;
+		this.posY = posY;
 	}
 	
 }

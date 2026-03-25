@@ -107,6 +107,46 @@ h2 { color: var(--primary-forest); margin-bottom: 25px; }
     color: #333;
     line-height: 1.5;
 }
+
+/* 삭제 버튼 스타일 */
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: rgba(0, 0, 0, 0.05); /* 평소에는 은은하게 */
+    color: #666;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    z-index: 10; /* 텍스트 위로 오도록 */
+}
+
+/* 마우스를 올렸을 때 (빨간색으로 강조) */
+.delete-btn:hover {
+    background-color: #ff5252;
+    color: white;
+    transform: scale(1.1); /* 살짝 커지는 효과 */
+}
+
+/* 클릭했을 때 살짝 들어가는 느낌 */
+.delete-btn:active {
+    transform: scale(0.9);
+}
+
+/* 버튼이 있을 때 텍스트가 겹치지 않게 여백 조절 (선택사항) */
+.sticky-note textarea {
+    padding-top: 10px;
+}
+
+
 /* 아이디 체크 그룹 레이아웃 */
 .id-check-group {
     display: flex;

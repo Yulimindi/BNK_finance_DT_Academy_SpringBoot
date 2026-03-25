@@ -8,27 +8,25 @@
 <body>
 <div class="board-header" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; align-items: center; background: white; padding: 10px 25px; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
     <span style="font-weight: bold; color: var(--primary-forest);">Forest Board</span>
-    <button id="add-btn" style="background: var(--primary-forest); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer;">+ 메모 심기</button>
-    <button onclick="location.href='login.html'" style="background: none; border: 1px solid #ddd; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem;">로그아웃</button>
+    <button id="add-btn" style="background: var(--primary-forest); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer;">+ 기억 심기</button>
+    <button onclick="location.href='/logout'" style="background: none; border: 1px solid #ddd; padding: 5px 10px; border-radius: 20px; font-size: 0.7rem;">로그아웃</button>
 </div>
 
 <div id="board" style="width: 100vw; height: 100vh; position: relative;">
-    <div class="sticky-note" style="top: 150px; left: 100px; background-color: #dff9fb;">
-        <p>푸릇푸릇한 메모장입니다! 🌿</p>
-    </div>
+    
 </div>
 
 <div id="memo-modal" class="modal-overlay">
     <div class="modal-content">
         <div class="modal-header">
-            <span>🌱 새 메모 심기</span>
+            <span>🌱 새 기억 심기</span>
             <button id="close-modal" class="close-btn">&times;</button>
         </div>
         <form class="modal-body" id="form">
         	<input type="hidden" id="pos-x" name="posX">
 			<input type="hidden" id="pos-y" name="posY">
-        	<input type="text" id="memo-title" name="title" placeholder="메모 제목" required><br>
-            <textarea id="memo-text" name="content" placeholder="메모 내용" required></textarea>
+        	<input type="text" id="memo-title" name="title" placeholder="기억 제목" required><br>
+            <textarea id="memo-text" name="content" placeholder="기억 내용" required></textarea>
             
             <div class="modal-footer">
                 <button type="button" id="submit-memo" class="btn-forest">심기 완료</button>
@@ -37,7 +35,60 @@
     </div>
 </div>
 
-<script>
+<script th:inline="javascript">
+
+// 메모 삭제
+function deleteMemo(mno) {
+	console.log("이거 삭제 : " + mno);
+	fetch("/deleteMemo?mno=" + mno)
+	.then(data => data.text())
+	.then(data => {
+		console.log(data);
+		if(data == "true") {
+			board.innerHTML = "";
+			loadAllMemos();
+		}
+	})
+}
+
+// 페이지 시작되면 실행
+document.addEventListener("DOMContentLoaded", () => {
+	loadAllMemos();
+});
+
+function loadAllMemos() {
+	const json = [[${memo}]];
+	for(i = 0; i < json.length; i++) {
+		renderMemo(json[i]);
+		console.log("writer : " + json[i].writer);
+	}
+}
+
+const loginUser = [[${session.username}]];
+
+function renderMemo(data) {
+	
+	const board = document.getElementById('board');
+	const note = document.createElement('div');
+	
+	note.className = 'sticky-note';
+	note.dataset.id = data.mno;
+	
+	note.style.left = data.posX + 'px';
+	note.style.top = data.posY + 'px';
+	note.style.backgroundColor = '#C8E6C9';
+	
+	note.innerHTML = `
+		<textarea readonly disabled>${data.content}</textarea>
+		${loginUser == data.member.username ?
+			`<button class="delete-btn" id="${data.mno}" onclick="deleteMemo(${data.mno})">x</button>` : '' 
+		}
+	`;
+	
+	makeFrontable(note);
+	board.appendChild(note);
+}
+
 
 let form = document.getElementById('form');
 document.getElementById('submit-memo').addEventListener("click", () => {
@@ -51,7 +102,8 @@ document.getElementById('submit-memo').addEventListener("click", () => {
 	.then(data => data.json())
 	.then(data => {
 		modal.style.display = 'none';
-		console.log(data);
+		renderMemo(data);
+		form.reset();
 	})
 })
 
@@ -60,6 +112,10 @@ const addBtn = document.getElementById('add-btn');
 const closeBtn = document.getElementById('close-modal');
 const submitBtn = document.getElementById('submit-memo');
 const board = document.getElementById('board');
+
+document.addEventListener("click", (e) => {
+	console.log("아이디 : " + e.target.id);
+})
 
 // 클릭 대기
 let isAddMode = false; // 현재 메모 심을 위치를 고르고 있나?
@@ -102,17 +158,17 @@ let highestZIndex = 100;
 // 모든 메모지에게 클릭 이벤트를 부여하는 함수 (새 메모 생성 시에도 호출 필요)
 function makeFrontable(noteElement) {
     noteElement.addEventListener('mousedown', function() {
-        // 1. 숫자를 하나 올리고
-        highestZIndex++;
+        // 1. 모든 메모지의 z-index를 기본값(1)으로 초기화하고 active 클래스 제거
+        document.querySelectorAll('.sticky-note').forEach(n => {
+            n.style.zIndex = 1;
+            n.classList.remove('active');
+        });
         
-        // 2. 클릭한 메모지의 z-index를 최신화!
-        this.style.zIndex = highestZIndex;
+        // 2. 현재 클릭한 메모지만 맨 앞으로 (숫자를 충분히 높게 설정)
+        this.style.zIndex = 999;
         
-        // 3. (선택사항) 다른 메모지들의 active 클래스 제거 후 현재꺼만 추가
-        document.querySelectorAll('.sticky-note').forEach(n => n.classList.remove('active'));
+        // 3. 현재 메모지에만 강조 스타일 추가
         this.classList.add('active');
-        
-        console.log("이 메모지가 숲에서 가장 위로 올라왔습니다! 🌿");
     });
 }
 

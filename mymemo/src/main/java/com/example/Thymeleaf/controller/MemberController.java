@@ -2,6 +2,7 @@ package com.example.Thymeleaf.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,7 +33,7 @@ public class MemberController {
 		if(ms.doLogin(m)) {
 			session.setAttribute("username", m.getUsername());
 			session.setAttribute("nickname", m.getNickname());
-			return "board";
+			return "redirect:/board";
 		}
 		return "redirect:/?result=fail";
 	}
@@ -40,6 +41,13 @@ public class MemberController {
 	@PostMapping("/doSignup")
 	public String doSignup(Member m) {
 		ms.doSignup(m);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("username");
+		session.removeAttribute("nickname");
 		return "redirect:/";
 	}
 }

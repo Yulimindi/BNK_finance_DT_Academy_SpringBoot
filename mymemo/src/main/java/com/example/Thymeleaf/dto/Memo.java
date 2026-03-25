@@ -17,6 +17,6 @@ public class Memo {
 	int posY;
 	
 	public MemoEntity dtoToEntity() {
-		return MemoEntity.builder().title(title).writer(writer).content(content).build();
+		return MemoEntity.builder().title(title).writer(writer).content(content).posX(posX).posY(posY).build();
 	}
 }
