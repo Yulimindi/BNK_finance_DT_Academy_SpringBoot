@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.Thymeleaf.dto.GetMemo;
 import com.example.Thymeleaf.dto.Memo;
+import com.example.Thymeleaf.dto.Secret;
+import com.example.Thymeleaf.dto.SecretDto;
 import com.example.Thymeleaf.entity.MemoEntity;
 import com.example.Thymeleaf.service.MemoService;
 
@@ -21,10 +24,15 @@ public class MemoController {
 	MemoService ms;
 	
 	@PostMapping("/createMemo")
-	public @ResponseBody MemoEntity createMemo(Memo m, HttpSession session) {
+	public @ResponseBody GetMemo createMemo(Memo m, @RequestParam(required=false, value="nameList") String nameList, HttpSession session) {
 		System.out.println("createMemo 왔어용");
 		m.setWriter((String) session.getAttribute("username"));
-		return ms.createMemo(m);
+		if(m.getS().equals(Secret.NO)) {
+			Memo memo = ms.createMemo(m).entityToDto();
+			return GetMemo.builder().mno(memo.getMno()).title(memo.getTitle()).content(memo.getContent()).writer(memo.getWriter()).regDate(memo.getRegDate()).s(memo.getS()).posX(memo.getPosX()).posY(memo.getPosY()).accessUser(nameList).build();
+		}
+		Memo memo = ms.createSecretMemo(m, nameList).entityToDto();
+		return GetMemo.builder().mno(memo.getMno()).title(memo.getTitle()).content(memo.getContent()).writer(memo.getWriter()).regDate(memo.getRegDate()).s(memo.getS()).posX(memo.getPosX()).posY(memo.getPosY()).accessUser(nameList).build();
 	}
 	
 	@GetMapping("/board")

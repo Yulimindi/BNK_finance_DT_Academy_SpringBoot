@@ -277,3 +277,100 @@ h2 { color: var(--primary-forest); margin-bottom: 25px; }
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
+
+/* 잠그기 라디오 버튼 디자인 */
+.lock-option-container {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.radio-label {
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 검색 영역 스타일 */
+.search-section {
+    background: #f1f8f4;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddecde;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.btn-small {
+    padding: 5px 12px;
+    background: #2d5a27;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 검색 결과 및 선택된 목록 */
+.search-results {
+    max-height: 100px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+}
+
+.search-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background: #e8f5e9;
+}
+
+.selected-users-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.selected-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.user-tag {
+    background: #e2ede3;
+    color: #2d5a27;
+    padding: 2px 8px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    border: 1px solid #c8d9c9;
+}
+
+.btn-del {
+    margin-left: 6px; border: none; border-radius: 50%;
+    width: 16px; height: 16px; cursor: pointer;
+    background: #b5c9b6; color: #fff; font-size: 9px;
+}

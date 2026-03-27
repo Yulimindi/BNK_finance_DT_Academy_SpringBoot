@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.Thymeleaf.dto.GetMember;
 import com.example.Thymeleaf.dto.Member;
 import com.example.Thymeleaf.service.MemberService;
 
@@ -49,5 +50,16 @@ public class MemberController {
 		session.removeAttribute("username");
 		session.removeAttribute("nickname");
 		return "redirect:/";
+	}
+	
+	@GetMapping("/getUser")
+	public @ResponseBody GetMember getUser(@RequestParam("nickname") String nickname) {
+		GetMember m = ms.getUser(nickname);
+		if(m.getNickname().equals(nickname)) {
+			return m;
+		} else {
+			return GetMember.builder().nickname("null").username("null").build();
+		}
+		
 	}
 }

@@ -23,9 +23,35 @@
             <button id="close-modal" class="close-btn">&times;</button>
         </div>
         <form class="modal-body" id="form">
-        	<input type="hidden" id="pos-x" name="posX">
-			<input type="hidden" id="pos-y" name="posY">
-        	<input type="text" id="memo-title" name="title" placeholder="기억 제목" required><br>
+            <input type="hidden" id="pos-x" name="posX">
+            <input type="hidden" id="pos-y" name="posY">
+            
+            <input type="hidden" id="choose" name="choose" value="NO">
+
+            <input type="text" id="memo-title" name="title" placeholder="기억 제목" required><br>
+
+            <div class="lock-option-container">
+                <label class="radio-label">
+                    <input type="radio" name="s" value="NO" checked onclick="toggleLock(false)"> 
+                    <span>🔓 공개하기</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="s" value="YES" onclick="toggleLock(true)"> 
+                    <span>🔒 잠그기</span>
+                </label>
+            </div>
+
+            <div id="user-search-area" class="search-section" style="display: none;">
+                <div class="search-bar">
+                    <input type="text" id="user-search-input" placeholder="닉네임 또는 아이디 입력">
+                    <button type="button" id="user-search-btn" class="btn-small">검색</button>
+                </div>
+                <div id="search-results" class="search-results"></div>
+                <div class="selected-users-label">📖 열람 가능한 사람:</div>
+                <div id="selected-users-list" class="selected-list">
+                    </div>
+            </div>
+
             <textarea id="memo-text" name="content" placeholder="기억 내용" required></textarea>
             
             <div class="modal-footer">
@@ -37,37 +63,124 @@
 
 <script th:inline="javascript">
 
-// 메모 삭제
-function deleteMemo(mno) {
-	console.log("이거 삭제 : " + mno);
-	fetch("/deleteMemo?mno=" + mno)
-	.then(data => data.text())
-	.then(data => {
-		console.log(data);
-		if(data == "true") {
-			board.innerHTML = "";
-			loadAllMemos();
-		}
-	})
-}
-
-// 페이지 시작되면 실행
+//페이지 시작되면 실행
 document.addEventListener("DOMContentLoaded", () => {
 	loadAllMemos();
 });
 
+// 접근 가능한 이름 지우기
+function deleteName(e) {
+	console.log(e);
+	e.closest('.user-tag').remove();
+}
+
+// 공개 / 잠그기 설정
+function toggleLock(isLocked) {
+    const searchArea = document.getElementById('user-search-area');
+    const chooseInput = document.getElementById('choose');
+    
+    if (isLocked) {
+        searchArea.style.display = 'block';
+        chooseInput.value = 'YES'; // DB의 Secret.YES와 매핑
+    } else {
+        searchArea.style.display = 'none';
+        chooseInput.value = 'NO';  // DB의 Secret.NO와 매핑
+    }
+}
+
+// 유저 검색
+document.getElementById('user-search-btn').addEventListener('click', () => {
+	const search = document.querySelector("#user-search-input");
+	const list = document.querySelector("#selected-users-list");
+    fetch("/getUser?nickname=" + search.value)
+    .then(data => data.json())
+    .then(data => {
+    	if(data.username != "null") {
+    		list.innerHTML += `<div class="user-tag">${data.nickname}<button type="button" class="btn-del" onclick="deleteName(this)">x</button>
+    							<input type="hidden" name="nameList" value="${data.username}">
+    							</div>`;
+    	}
+    })
+});
+
+
+
+// 메모 삭제
+function deleteMemo(mno) {
+	fetch("/deleteMemo?mno=" + mno)
+	.then(data => data.text())
+	.then(data => {
+		if(data == "true") {
+			location.reload();
+		}
+	})
+}
+
+// 페이지 로드 시 전체 메모 불러오는 핵심 함수
 function loadAllMemos() {
 	const json = [[${memo}]];
 	for(i = 0; i < json.length; i++) {
-		renderMemo(json[i]);
-		console.log("writer : " + json[i].writer);
+		if(json[i].s == "YES") {
+			console.log("YES");
+			renderSecretMemo(json[i]);
+		} else {
+			renderMemo(json[i]);
+			console.log("NO");
+		}
 	}
 }
 
+// 로그인 한 사람의 아이디 가져옴
 const loginUser = [[${session.username}]];
 
-function renderMemo(data) {
+let showMembers;
+
+// 비밀 메모 가져오기
+function renderSecretMemo(data) {
 	
+	console.log("NOOOO");
+	
+	const board = document.getElementById('board');
+	const note = document.createElement('div');
+	
+	note.className = 'sticky-note';
+	note.dataset.id = data.mno;
+	
+	note.style.left = data.posX + 'px';
+	note.style.top = data.posY + 'px';
+	note.style.backgroundColor = '#C8E6C9';
+
+	note.innerHTML = `
+	    <textarea readonly disabled style="width:100%; border:none; background:none; font-weight:bold; color:#2d5a27; resize:none; height:24px; padding:0;">${data.title}</textarea>
+	    <hr style="border:0; border-top:1px solid #eee; margin:5px 0;">
+	    ${loginUser == data.member.username ? 
+	    		`<button class="delete-btn" id="${data.mno}" onclick="deleteMemo(${data.mno})" style="position:absolute; top:5px; right:5px; border:none; background:none; cursor:pointer;">✕</button>` : '' 
+	    }
+	    
+	    <button class="showMemo-btn" id="${data.mno}" onclick="showMemo(this)">🔓</button>
+	`;
+	
+	data.
+	
+	
+	makeFrontable(note);
+	board.appendChild(note);
+
+}
+
+// 비밀 메모 열기
+function showMemo(e) {
+	
+	if(loginUser == "qwe") {
+		console.log(e.id);
+	} else {
+		alert("쉿!🤫 비밀이에요!");
+	}
+}
+
+// 전체 공개 메모 가져오기
+function renderMemo(data) {
+	console.log("NOOOO");
 	const board = document.getElementById('board');
 	const note = document.createElement('div');
 	
@@ -79,22 +192,24 @@ function renderMemo(data) {
 	note.style.backgroundColor = '#C8E6C9';
 	
 	note.innerHTML = `
-		<textarea readonly disabled>${data.content}</textarea>
-		${loginUser == data.member.username ?
-			`<button class="delete-btn" id="${data.mno}" onclick="deleteMemo(${data.mno})">x</button>` : '' 
-		}
+	    <textarea readonly disabled style="width:100%; border:none; background:none; font-weight:bold; color:#2d5a27; resize:none; height:24px; padding:0;">${data.title}</textarea>
+	    <hr style="border:0; border-top:1px solid #eee; margin:5px 0;">
+	    <textarea readonly disabled style="width:100%; border:none; background:none; resize:none; min-height:60px; padding:0; line-height:1.4;">${data.content}</textarea>
+	    ${loginUser == data.member.username ? 
+	        `<button class="delete-btn" id="${data.mno}" onclick="deleteMemo(${data.mno})" style="position:absolute; top:5px; right:5px; border:none; background:none; cursor:pointer;">✕</button>` : '' 
+	    }
 	`;
 	
 	makeFrontable(note);
 	board.appendChild(note);
 }
 
-
+// 메모 만들기
 let form = document.getElementById('form');
 document.getElementById('submit-memo').addEventListener("click", () => {
 	form = document.getElementById('form');
 	const formData = new FormData(form);
-	
+	console.log("메모 만듣기 들어옴");
 	fetch("/createMemo", {
 		method : "post",
 		body : formData
@@ -113,9 +228,6 @@ const closeBtn = document.getElementById('close-modal');
 const submitBtn = document.getElementById('submit-memo');
 const board = document.getElementById('board');
 
-document.addEventListener("click", (e) => {
-	console.log("아이디 : " + e.target.id);
-})
 
 // 클릭 대기
 let isAddMode = false; // 현재 메모 심을 위치를 고르고 있나?

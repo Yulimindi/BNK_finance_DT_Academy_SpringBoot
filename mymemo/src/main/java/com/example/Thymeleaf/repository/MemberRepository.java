@@ -8,4 +8,5 @@ import com.example.Thymeleaf.entity.MemberEntity;
 @Repository
 public interface MemberRepository extends JpaRepository<MemberEntity, String> {
 	MemberEntity findByUsernameAndPw(String username, String pw);
+	MemberEntity findByNickname(String nickname);
 }
