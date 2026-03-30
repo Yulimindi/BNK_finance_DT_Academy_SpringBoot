@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>티켓 구매</h1>
+	<hr>
+	<form th:action="@{/ticket}" method="post">
+		고객 아이디 : <input type="text" name="consumerId"><br>
+		구매 개수 : <input type="text" name="amount"><br>
+		에러 발생 여부 : <input type="text" name="ERROR"><br>
+		에러 발생 여부가 1이면 에러가 발생합니다.
+		<input type="submit" value="구매">
+	</form>
+</body>
+</html>

@@ -1,0 +1,256 @@
+2026-03-30 15:22:03 [main] INFO  c.e.transaction.LogExApplication - Starting LogExApplication using Java 21.0.10 with PID 13300 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 15:22:03 [main] INFO  c.e.transaction.LogExApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-30 15:22:03 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8094 (http)
+2026-03-30 15:22:03 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:22:03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 15:22:03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 15:22:03 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 486 ms
+2026-03-30 15:22:03 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-03-30 15:22:03 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:22:04 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 15:22:04 [main] INFO  c.e.transaction.LogExApplication - Started LogExApplication in 1.093 seconds (process running for 1.541)
+2026-03-30 15:31:39 [RMI TCP Connection(19)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-03-30 15:31:39 [RMI TCP Connection(19)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 15:31:39 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:31:39 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-30 15:31:39 [RMI TCP Connection(19)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:31:40 [main] INFO  c.e.transaction.LogExApplication - Starting LogExApplication using Java 21.0.10 with PID 4508 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 15:31:40 [main] INFO  c.e.transaction.LogExApplication - No active profile set, falling back to 1 default profile: "default"
+2026-03-30 15:31:41 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8094 (http)
+2026-03-30 15:31:41 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:31:41 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 15:31:41 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 15:31:41 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 495 ms
+2026-03-30 15:31:41 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping - Adding welcome page template: index
+2026-03-30 15:31:41 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:31:41 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 15:31:41 [main] INFO  c.e.transaction.LogExApplication - Started LogExApplication in 1.137 seconds (process running for 1.585)
+2026-03-30 15:32:22 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-03-30 15:32:22 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 15:32:22 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:32:22 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-30 15:32:22 [RMI TCP Connection(10)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:32:23 [main] INFO  c.e.transaction.LogExApplication.logStarting - Starting LogExApplication using Java 21.0.10 with PID 9580 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 15:32:23 [main] INFO  c.e.transaction.LogExApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+2026-03-30 15:32:24 [main] INFO  o.s.boot.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8094 (http)
+2026-03-30 15:32:24 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:32:24 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+2026-03-30 15:32:24 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 15:32:24 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 478 ms
+2026-03-30 15:32:24 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping.<init> - Adding welcome page template: index
+2026-03-30 15:32:24 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:32:24 [main] INFO  o.s.boot.tomcat.TomcatWebServer.start - Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 15:32:24 [main] INFO  c.e.transaction.LogExApplication.logStarted - Started LogExApplication in 1.089 seconds (process running for 1.518)
+2026-03-30 15:32:37 [http-nio-8094-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30 15:32:37 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+2026-03-30 15:32:37 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 0 ms
+2026-03-30 15:32:37 [http-nio-8094-exec-1] INFO  c.e.t.controller.MyController.index - INFO log가 출력됩니다.
+2026-03-30 15:32:37 [http-nio-8094-exec-1] WARN  c.e.t.controller.MyController.index - WARN log가 출력됩니다.
+2026-03-30 15:32:37 [http-nio-8094-exec-1] ERROR c.e.t.controller.MyController.index - ERROR log가 출력됩니다.
+2026-03-30 15:46:12 [RMI TCP Connection(23)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown - Application shutdown requested.
+2026-03-30 15:46:12 [RMI TCP Connection(23)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown.shutDownGracefully - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 15:46:12 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol.log - Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:46:12 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown.doShutdown - Graceful shutdown complete
+2026-03-30 15:46:12 [RMI TCP Connection(23)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol.log - Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:46:13 [main] INFO  c.e.transaction.LogExApplication.logStarting:54 - Starting LogExApplication using Java 21.0.10 with PID 6592 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 15:46:13 [main] INFO  c.e.transaction.LogExApplication.logStartupProfileInfo:652 - No active profile set, falling back to 1 default profile: "default"
+2026-03-30 15:46:14 [main] INFO  o.s.boot.tomcat.TomcatWebServer.initialize:114 - Tomcat initialized with port 8094 (http)
+2026-03-30 15:46:14 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:46:14 [main] INFO  o.a.catalina.core.StandardService.log:168 - Starting service [Tomcat]
+2026-03-30 15:46:14 [main] INFO  o.a.catalina.core.StandardEngine.log:168 - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 15:46:14 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext:77 - Root WebApplicationContext: initialization completed in 497 ms
+2026-03-30 15:46:14 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping.<init>:60 - Adding welcome page template: index
+2026-03-30 15:46:14 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:46:14 [main] INFO  o.s.boot.tomcat.TomcatWebServer.start:240 - Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 15:46:14 [main] INFO  c.e.transaction.LogExApplication.logStarted:60 - Started LogExApplication in 1.153 seconds (process running for 1.617)
+2026-03-30 15:46:17 [http-nio-8094-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30 15:46:17 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:523 - Initializing Servlet 'dispatcherServlet'
+2026-03-30 15:46:17 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:545 - Completed initialization in 1 ms
+2026-03-30 15:46:17 [http-nio-8094-exec-1] INFO  c.e.t.controller.MyController.index:18 - INFO log가 출력됩니다.
+2026-03-30 15:46:17 [http-nio-8094-exec-1] WARN  c.e.t.controller.MyController.index:19 - WARN log가 출력됩니다.
+2026-03-30 15:46:17 [http-nio-8094-exec-1] ERROR c.e.t.controller.MyController.index:20 - ERROR log가 출력됩니다.
+2026-03-30 15:46:18 [http-nio-8094-exec-3] ERROR org.thymeleaf.TemplateEngine.process:1141 - [THYMELEAF][http-nio-8094-exec-3] Exception processing template "finish": Error resolving template [finish], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [finish], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1042)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-03-30 15:46:18 [http-nio-8094-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log:170 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [finish], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [finish], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1042)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:980)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-03-30 15:47:09 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown:150 - Application shutdown requested.
+2026-03-30 15:47:09 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown.shutDownGracefully:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 15:47:09 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:47:09 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown.doShutdown:76 - Graceful shutdown complete
+2026-03-30 15:47:09 [RMI TCP Connection(9)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:47:11 [main] INFO  c.e.transaction.LogExApplication.logStarting:54 - Starting LogExApplication using Java 21.0.10 with PID 9052 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 15:47:11 [main] INFO  c.e.transaction.LogExApplication.logStartupProfileInfo:652 - No active profile set, falling back to 1 default profile: "default"
+2026-03-30 15:47:11 [main] INFO  o.s.boot.tomcat.TomcatWebServer.initialize:114 - Tomcat initialized with port 8094 (http)
+2026-03-30 15:47:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:47:11 [main] INFO  o.a.catalina.core.StandardService.log:168 - Starting service [Tomcat]
+2026-03-30 15:47:11 [main] INFO  o.a.catalina.core.StandardEngine.log:168 - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 15:47:11 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext:77 - Root WebApplicationContext: initialization completed in 480 ms
+2026-03-30 15:47:11 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping.<init>:60 - Adding welcome page template: index
+2026-03-30 15:47:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 15:47:12 [main] INFO  o.s.boot.tomcat.TomcatWebServer.start:240 - Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 15:47:12 [main] INFO  c.e.transaction.LogExApplication.logStarted:60 - Started LogExApplication in 1.141 seconds (process running for 1.592)
+2026-03-30 15:47:12 [http-nio-8094-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30 15:47:12 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:523 - Initializing Servlet 'dispatcherServlet'
+2026-03-30 15:47:12 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:545 - Completed initialization in 1 ms
+2026-03-30 15:47:22 [http-nio-8094-exec-10] INFO  c.e.t.controller.MyController.index:18 - INFO log가 출력됩니다.
+2026-03-30 15:47:22 [http-nio-8094-exec-10] WARN  c.e.t.controller.MyController.index:19 - WARN log가 출력됩니다.
+2026-03-30 15:47:22 [http-nio-8094-exec-10] ERROR c.e.t.controller.MyController.index:20 - ERROR log가 출력됩니다.
+2026-03-30 16:07:41 [RMI TCP Connection(31)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown:150 - Application shutdown requested.
+2026-03-30 16:07:41 [RMI TCP Connection(31)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown.shutDownGracefully:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 16:07:41 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:07:41 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown.doShutdown:76 - Graceful shutdown complete
+2026-03-30 16:07:41 [RMI TCP Connection(31)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:07:42 [main] INFO  c.e.transaction.LogExApplication.logStarting:54 - Starting LogExApplication using Java 21.0.10 with PID 4492 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 16:07:42 [main] INFO  c.e.transaction.LogExApplication.logStartupProfileInfo:652 - No active profile set, falling back to 1 default profile: "default"
+2026-03-30 16:07:43 [main] INFO  o.s.boot.tomcat.TomcatWebServer.initialize:114 - Tomcat initialized with port 8094 (http)
+2026-03-30 16:07:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:07:43 [main] INFO  o.a.catalina.core.StandardService.log:168 - Starting service [Tomcat]
+2026-03-30 16:07:43 [main] INFO  o.a.catalina.core.StandardEngine.log:168 - Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 16:07:43 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext:77 - Root WebApplicationContext: initialization completed in 522 ms
+2026-03-30 16:07:43 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping.<init>:60 - Adding welcome page template: index
+2026-03-30 16:07:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:07:43 [main] INFO  o.s.boot.tomcat.TomcatWebServer.start:240 - Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 16:07:43 [main] INFO  c.e.transaction.LogExApplication.logStarted:60 - Started LogExApplication in 1.135 seconds (process running for 1.56)
+2026-03-30 16:07:45 [http-nio-8094-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30 16:07:45 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:523 - Initializing Servlet 'dispatcherServlet'
+2026-03-30 16:07:45 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:545 - Completed initialization in 1 ms
+2026-03-30 16:07:45 [http-nio-8094-exec-1] INFO  c.e.t.controller.MyController.index:18 - INFO log가 출력됩니다.
+2026-03-30 16:07:45 [http-nio-8094-exec-1] WARN  c.e.t.controller.MyController.index:19 - WARN log가 출력됩니다.
+2026-03-30 16:07:45 [http-nio-8094-exec-1] ERROR c.e.t.controller.MyController.index:20 - ERROR log가 출력됩니다.
+2026-03-30 16:07:49 [http-nio-8094-exec-2] INFO  c.e.t.controller.MyController.order1:33 - [CLICK_EVENT] | 우유
+2026-03-30 16:07:55 [http-nio-8094-exec-3] INFO  c.e.t.controller.MyController.milk2:52 - [MILK] | 초코우유
+2026-03-30 16:07:57 [http-nio-8094-exec-4] INFO  c.e.t.controller.MyController.milk2:52 - [MILK] | 초코우유
+2026-03-30 16:07:58 [http-nio-8094-exec-5] INFO  c.e.t.controller.MyController.milk2:52 - [MILK] | 초코우유
+2026-03-30 16:07:59 [http-nio-8094-exec-6] INFO  c.e.t.controller.MyController.milk1:45 - [MILK] | 흰우유
+2026-03-30 16:07:59 [http-nio-8094-exec-7] INFO  c.e.t.controller.MyController.milk1:45 - [MILK] | 흰우유
+2026-03-30 16:08:01 [http-nio-8094-exec-8] INFO  c.e.t.controller.MyController.order1:33 - [CLICK_EVENT] | 우유
+2026-03-30 16:08:02 [http-nio-8094-exec-9] INFO  c.e.t.controller.MyController.order1:33 - [CLICK_EVENT] | 우유
+2026-03-30 16:08:03 [http-nio-8094-exec-10] INFO  c.e.t.controller.MyController.order1:33 - [CLICK_EVENT] | 우유
+2026-03-30 16:08:05 [http-nio-8094-exec-1] INFO  c.e.t.controller.MyController.order2:39 - [CLICK_EVENT] | 탄산
+2026-03-30 16:08:05 [http-nio-8094-exec-2] INFO  c.e.t.controller.MyController.drink2:73 - [DRINK] | 사이다
+2026-03-30 16:08:06 [http-nio-8094-exec-3] INFO  c.e.t.controller.MyController.order2:39 - [CLICK_EVENT] | 탄산
+2026-03-30 16:08:07 [http-nio-8094-exec-4] INFO  c.e.t.controller.MyController.drink1:66 - [DRINK] | 콜라
+2026-03-30 16:08:08 [http-nio-8094-exec-5] INFO  c.e.t.controller.MyController.order2:39 - [CLICK_EVENT] | 탄산
+2026-03-30 16:08:08 [http-nio-8094-exec-6] INFO  c.e.t.controller.MyController.drink1:66 - [DRINK] | 콜라
+2026-03-30 16:20:33 [RMI TCP Connection(23)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown:150 - Application shutdown requested.
+2026-03-30 16:20:33 [RMI TCP Connection(23)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown.shutDownGracefully:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 16:20:33 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:20:33 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown.doShutdown:76 - Graceful shutdown complete
+2026-03-30 16:20:33 [RMI TCP Connection(23)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:20:34 [main] INFO  c.e.transaction.LogExApplication.logStarting:54 - [] Starting LogExApplication using Java 21.0.10 with PID 9968 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 16:20:34 [main] INFO  c.e.transaction.LogExApplication.logStartupProfileInfo:652 - [] No active profile set, falling back to 1 default profile: "default"
+2026-03-30 16:20:35 [main] INFO  o.s.boot.tomcat.TomcatWebServer.initialize:114 - [] Tomcat initialized with port 8094 (http)
+2026-03-30 16:20:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - [] Initializing ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:20:35 [main] INFO  o.a.catalina.core.StandardService.log:168 - [] Starting service [Tomcat]
+2026-03-30 16:20:35 [main] INFO  o.a.catalina.core.StandardEngine.log:168 - [] Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-30 16:20:35 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer.prepareWebApplicationContext:77 - [] Root WebApplicationContext: initialization completed in 555 ms
+2026-03-30 16:20:35 [main] INFO  o.s.b.w.a.WelcomePageHandlerMapping.<init>:60 - [] Adding welcome page template: index
+2026-03-30 16:20:35 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - [] Starting ProtocolHandler ["http-nio-8094"]
+2026-03-30 16:20:35 [main] INFO  o.s.boot.tomcat.TomcatWebServer.start:240 - [] Tomcat started on port 8094 (http) with context path '/'
+2026-03-30 16:20:35 [main] INFO  c.e.transaction.LogExApplication.logStarted:60 - [] Started LogExApplication in 1.191 seconds (process running for 1.633)
+2026-03-30 16:20:37 [http-nio-8094-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log:168 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30 16:20:37 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:523 - [] Initializing Servlet 'dispatcherServlet'
+2026-03-30 16:20:37 [http-nio-8094-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:545 - [] Completed initialization in 1 ms
+2026-03-30 16:20:37 [http-nio-8094-exec-1] INFO  c.e.t.controller.MyController.index:18 - [] INFO log가 출력됩니다.
+2026-03-30 16:20:37 [http-nio-8094-exec-1] WARN  c.e.t.controller.MyController.index:19 - [] WARN log가 출력됩니다.
+2026-03-30 16:20:37 [http-nio-8094-exec-1] ERROR c.e.t.controller.MyController.index:20 - [] ERROR log가 출력됩니다.
+2026-03-30 16:20:41 [http-nio-8094-exec-2] INFO  c.e.t.controller.MyController.order1:33 - [0:0:0:0:0:0:0:1] [CLICK_EVENT] | 우유
+2026-03-30 16:20:45 [http-nio-8094-exec-3] INFO  c.e.t.controller.MyController.milk1:45 - [0:0:0:0:0:0:0:1] [MILK] | 흰우유
+2026-03-30 16:20:46 [http-nio-8094-exec-4] INFO  c.e.t.controller.MyController.order2:39 - [0:0:0:0:0:0:0:1] [CLICK_EVENT] | 탄산
+2026-03-30 16:20:47 [http-nio-8094-exec-5] INFO  c.e.t.controller.MyController.drink2:73 - [0:0:0:0:0:0:0:1] [DRINK] | 사이다
+2026-03-30 16:20:49 [http-nio-8094-exec-6] INFO  c.e.t.controller.MyController.drink3:80 - [0:0:0:0:0:0:0:1] [DRINK] | 환타
+2026-03-30 16:20:50 [http-nio-8094-exec-7] INFO  c.e.t.controller.MyController.order1:33 - [0:0:0:0:0:0:0:1] [CLICK_EVENT] | 우유
+2026-03-30 16:20:51 [http-nio-8094-exec-8] INFO  c.e.t.controller.MyController.milk1:45 - [0:0:0:0:0:0:0:1] [MILK] | 흰우유
+2026-03-30 17:06:30 [RMI TCP Connection(56)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown:150 - [] Application shutdown requested.
+2026-03-30 17:06:30 [RMI TCP Connection(56)-127.0.0.1] INFO  o.s.boot.tomcat.GracefulShutdown.shutDownGracefully:54 - [] Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 17:06:30 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - [] Pausing ProtocolHandler ["http-nio-8094"]
+2026-03-30 17:06:30 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown.doShutdown:76 - [] Graceful shutdown complete
+2026-03-30 17:06:30 [RMI TCP Connection(56)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol.log:168 - [] Stopping ProtocolHandler ["http-nio-8094"]
+2026-03-30 17:08:26 [main] INFO  c.e.transaction.LogExApplication.logStarting:54 - [] Starting LogExApplication using Java 21.0.10 with PID 3528 (C:\dev\ws_sts\logEx\bin\main started by GGG in C:\dev\ws_sts\logEx)
+2026-03-30 17:08:26 [main] INFO  c.e.transaction.LogExApplication.logStartupProfileInfo:652 - [] No active profile set, falling back to 1 default profile: "default"

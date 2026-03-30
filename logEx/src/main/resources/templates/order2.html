@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action=@{/drink1} method="get">
+		<input type="submit" value="콜라 주세요">
+	</form>
+	<form th:action=@{/drink2} method="get">
+		<input type="submit" value="사이다 주세요">
+	</form>
+	<form th:action=@{/drink3} method="get">
+		<input type="submit" value="환타 주세요">
+	</form>
+</body>
+</html>

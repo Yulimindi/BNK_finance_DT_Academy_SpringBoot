@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<h3>카드결제</h3>
+	<hr>
+	<form action="buy_ticket_card">
+		고객 아이디 : <input type="text" name="consumerid"><br>
+		티켓 구매수 : <input type="text" name="amount"><br>
+		에러 발생 여부 : <input type="text" name="error"><br>
+		<input type="submit" value="구매">
+	</form>
+	
+	<br>
+	<hr>
+	에러 발생 여부에 1을 입력하면 에러가 발생합니다.
+	에러 발생 여부에 2를 입력하면 포함한 곳에서 에러가 발생합니다.
+</body>
+</html>
