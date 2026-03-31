@@ -4,11 +4,15 @@ import java.time.LocalDateTime;
 
 import com.example.Thymeleaf.entity.MemoEntity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Memo {
 	Integer mno;
 	String title;

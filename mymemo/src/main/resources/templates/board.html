@@ -119,13 +119,14 @@ function deleteMemo(mno) {
 // 페이지 로드 시 전체 메모 불러오는 핵심 함수
 function loadAllMemos() {
 	const json = [[${memo}]];
+	console.log("json 무슨 형태? " + json);
 	for(i = 0; i < json.length; i++) {
 		if(json[i].s == "YES") {
 			console.log("YES");
 			renderSecretMemo(json[i]);
 		} else {
-			renderMemo(json[i]);
 			console.log("NO");
+			renderMemo(json[i]);
 		}
 	}
 }
@@ -137,7 +138,7 @@ let showMembers;
 
 // 비밀 메모 가져오기
 function renderSecretMemo(data) {
-	
+	console.log("무슨 형태?" + typeof data);
 	console.log("NOOOO");
 	
 	const board = document.getElementById('board');
@@ -159,8 +160,6 @@ function renderSecretMemo(data) {
 	    
 	    <button class="showMemo-btn" id="${data.mno}" onclick="showMemo(this)">🔓</button>
 	`;
-	
-	data.
 	
 	
 	makeFrontable(note);
@@ -195,7 +194,7 @@ function renderMemo(data) {
 	    <textarea readonly disabled style="width:100%; border:none; background:none; font-weight:bold; color:#2d5a27; resize:none; height:24px; padding:0;">${data.title}</textarea>
 	    <hr style="border:0; border-top:1px solid #eee; margin:5px 0;">
 	    <textarea readonly disabled style="width:100%; border:none; background:none; resize:none; min-height:60px; padding:0; line-height:1.4;">${data.content}</textarea>
-	    ${loginUser == data.member.username ? 
+	    ${loginUser == data.writer ? 
 	        `<button class="delete-btn" id="${data.mno}" onclick="deleteMemo(${data.mno})" style="position:absolute; top:5px; right:5px; border:none; background:none; cursor:pointer;">✕</button>` : '' 
 	    }
 	`;
@@ -209,13 +208,13 @@ let form = document.getElementById('form');
 document.getElementById('submit-memo').addEventListener("click", () => {
 	form = document.getElementById('form');
 	const formData = new FormData(form);
-	console.log("메모 만듣기 들어옴");
 	fetch("/createMemo", {
 		method : "post",
 		body : formData
 	})
 	.then(data => data.json())
 	.then(data => {
+		console.log("받아온 데이터 : " + data.writer);
 		modal.style.display = 'none';
 		renderMemo(data);
 		form.reset();

@@ -77,7 +77,7 @@ public class MemoEntity {
 	}
 	
 	public Memo entityToDto() {
-		return Memo.builder().mno(mno).title(title).writer(member.getNickname()).content(content).regDate(regDate).s(s).posX(posX).posY(posY).build();
+		return Memo.builder().mno(mno).title(title).writer(member.getUsername()).content(content).regDate(regDate).s(s).posX(posX).posY(posY).build();
 	}
 	
 }

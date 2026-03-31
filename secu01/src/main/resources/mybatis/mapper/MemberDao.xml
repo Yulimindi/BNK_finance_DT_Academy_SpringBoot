@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.secu.dao.IMemberDao">
+	<insert id="regist">
+		insert into secu values (#{member.username}, #{member.password}, #{member.name}, #{member.role})
+	</insert>
+	<select id="findByUsername" resultType="com.example.secu.domain.Member">
+		select * from secu where username = #{param}
+	</select>
+</mapper>

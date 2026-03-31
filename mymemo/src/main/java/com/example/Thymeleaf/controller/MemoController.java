@@ -1,5 +1,7 @@
 package com.example.Thymeleaf.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,8 +29,12 @@ public class MemoController {
 	public @ResponseBody GetMemo createMemo(Memo m, @RequestParam(required=false, value="nameList") String nameList, HttpSession session) {
 		System.out.println("createMemo 왔어용");
 		m.setWriter((String) session.getAttribute("username"));
+		System.out.println("세션 아이디 : " + (String) session.getAttribute("username"));
 		if(m.getS().equals(Secret.NO)) {
 			Memo memo = ms.createMemo(m).entityToDto();
+			
+			System.out.println(memo.getWriter());
+			System.out.println("메모 잘 만들어졌나" + GetMemo.builder().mno(memo.getMno()).title(memo.getTitle()).content(memo.getContent()).writer(memo.getWriter()).regDate(memo.getRegDate()).s(memo.getS()).posX(memo.getPosX()).posY(memo.getPosY()).accessUser(nameList).build());
 			return GetMemo.builder().mno(memo.getMno()).title(memo.getTitle()).content(memo.getContent()).writer(memo.getWriter()).regDate(memo.getRegDate()).s(memo.getS()).posX(memo.getPosX()).posY(memo.getPosY()).accessUser(nameList).build();
 		}
 		Memo memo = ms.createSecretMemo(m, nameList).entityToDto();
@@ -37,6 +43,7 @@ public class MemoController {
 	
 	@GetMapping("/board")
 	public String getAllMemo(Model m) {
+//		List<MemoEntity> list = ms.getAllMemo();
 		m.addAttribute("memo", ms.getAllMemo());
 		return "board";
 	}
