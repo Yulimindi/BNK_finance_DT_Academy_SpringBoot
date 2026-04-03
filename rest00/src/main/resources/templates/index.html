@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>fetch 사용</h1>
+	<hr>
+	<p id="datas"></p>
+	<hr>
+	<h3>멤버 입력</h3>
+	<form id="form1">
+		<input type="text" name="name">
+		<input type="text" name="email">
+		<input type="text" name="organization">
+		<button type="button" onclick="ins()">추가</button>
+	</form>
+	<hr>
+	<h3>멤버 삭제</h3>
+	<form id="form2">
+		<input type="text" name="email" id="email">
+		<button type="button" onclick="del()">삭제</button>
+	</form>
+	
+	<script>
+	const datas = document.querySelector("#datas");
+	
+		function ins() {
+			console.log("추가");
+			const form = document.querySelector("#form1");
+			const formData = new FormData(form);
+			
+			fetch("/api/v1/put-api/member/member2", {
+				method : "put",
+				body : formData
+			})
+			.then(data => data.text())
+			.then(data => {
+				console.log(data);
+				datas.innerHTML = "결과" + data;
+			});
+		}
+		
+		function del() {
+			const email = document.querySelector("#email");
+			console.log("삭제");
+			fetch("/api/v1/delete/member/"+email.value, {
+				method : "delete"
+			})
+			.then(data => data.text())
+			.then(data => {
+				datas.innerHTML = "결과" + data + "<br>";
+			});
+		}
+	</script>
+	
+</body>
+</html>

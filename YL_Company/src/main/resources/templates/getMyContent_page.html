@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Show Page</h1>
+	<hr>
+	<th:block th:if="${list} != null" th:each="lists : ${list}">
+			<a th:href="@{/getOneContent(b_id=${lists.b_id})}">[[${lists.title}]]</a><br>
+		</th:each>
+	</th:block>
+	
+</body>
+</html>

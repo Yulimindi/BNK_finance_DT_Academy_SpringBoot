@@ -9,22 +9,24 @@ import com.example.secu.entity.Member;
 import com.example.secu.repository.MemberRepository;
 
 @Service
-public class JoinService {
-	
+public class MemberService {
+
 	@Autowired
-	BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	@Autowired
-	MemberRepository mr;
+	private MemberRepository mr;
+	@Autowired // 빈 등록
+	private BCryptPasswordEncoder bpe;
 	
 	public Member regist(MemberDto memberDto) {
-		// 실제 DB에 저장하게 하는 메소드
-		memberDto.setPassword(bCryptPasswordEncoder.encode(memberDto.getPassword()));
+		// Dto -> Entity + Pw 암호화
 		if(memberDto.getUsername().equals("admin")) {
 			memberDto.setRole("ROLE_ADMIN");
 		} else {
 			memberDto.setRole("ROLE_MEMBER");
 		}
-		return mr.save(MemberDto.dtoToEntity(memberDto));
+		memberDto.setPassword(bpe.encode(memberDto.getPassword()));
+		System.out.println("값 :" + memberDto);
+		mr.save(MemberDto.dtoToEntity(memberDto));
+		System.out.println("저장");
+		return null;
 	}
 }

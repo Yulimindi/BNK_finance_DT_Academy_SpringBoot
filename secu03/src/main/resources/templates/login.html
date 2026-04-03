@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>로그인 페이지</h1>
+	<hr>
+	<form th:action="@{/loginProc}" method="post">
+		아이디<input type="text" name="username"><br>
+		<th:block th:if="${errorMsg} != null">
+			<p>아이디 또는 비밀번호가 틀렸당께</p>
+		</th:block>
+		비밀번호<input type="text" name="password"><br>
+		<input type="submit" value="로그인">
+		<input type="checkbox" name="remember-me">기억해줘잉
+		
+	</form>
+	
+	<script th:inline="javascript">
+		if([[${logout}]] != null) {
+			alert("로그아웃 하셨습니다.");
+		}
+	</script>
+</body>
+</html>

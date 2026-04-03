@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/createContent}" method="post">
+		<input type="text" name="title"><br>
+		<input type="text" name="detail"><br>
+		<select name="reader">
+		<th:block th:each="lists : ${list}">
+			<option th:value="${lists.mno}">[[${lists.name}]]</option>
+		</th:block>
+		</select><br>
+		<input type="submit" value="제출">
+	</form>
+</body>
+</html>

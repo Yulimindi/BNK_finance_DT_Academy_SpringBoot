@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인덱스 페이지</h1>
+	<hr>
+	<div sec:authorize="isAuthenticated()">
+		<form th:action="@{/logout}" method="post">
+			<button type="submit">로그아웃</button>
+		</form>
+	</div>
+	<div sec:authorize="isAnonymous()">
+		<p><a href="/login">로그인</a></p>	
+	</div>
+	
+	<p><a href="/regist">회원가입</a></p>
+	<p><a href="/member">회원 전용 페이지</a></p>
+	<p><a href="/admin">관리자 전용 페이지</a></p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>로그인 페이지</h1>
+	<form th:action="@{/loginProc}" method="post">
+		<input type="text" name="mno">
+		<input type="text" name="pw">
+		<input type="submit" value="로그인">
+	</form>
+</body>
+</html>

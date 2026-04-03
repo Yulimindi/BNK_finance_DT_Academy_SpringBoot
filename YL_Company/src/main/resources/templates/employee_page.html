@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Employee Page</h1>
+	<hr>
+	<form th:action="@{/logout}" method="post">
+		<button type="submit">로그아웃</button>
+	</form>
+	<a th:href="@{/getMyContent}">내가 쓴 글 목록 보기</a>
+	<a th:href="@{/createContent_page}">글쓰기</a>
+</body>
+</html>
