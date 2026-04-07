@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인덱스</h1>
+	<hr>
+	
+	<a href="/jwt-test/generate">기본 사용자</a>
+	<a href="/jwt-test/generate?username=말차&role=MEMBER">말차(멤버)</a>
+	<a href="/jwt-test/generate?username=녹차&role=ADMIN">녹차(관리자)</a>
+	
+	<form id="frm">
+		<input type="text" name="username" value="말차">
+		<input type="text" name="role" value="GUEST">
+		<button type="button" onclick="func()">토큰 생성</button>
+	</form>
+	
+	<br>
+	
+	<button onclick="request()">새 요청 보내기</button>
+	
+	<script>
+	
+	function request() {
+		fetch("/jwt-test/protected", {
+			method : "get",
+			headers : {
+				Authorization : "Bearer " + localStorage.getItem("accessToken")
+			}
+		})
+		.then(data => data.text())
+		.then(data => {
+			if(data == "잘안됐으용") {
+				console.log(data);
+			} else {
+				console.log(data + "님 안뇽");
+			}
+		})
+	}
+	
+	function func() {
+		const form = document.querySelector("#frm");
+		const formData = new FormData(form);
+		
+		fetch("/jwt-test/login", {
+			method : "post",
+			body : formData
+		})
+		.then(data => data.json())
+		.then(data => {
+			localStorage.setItem("accessToken", data.token);
+		})
+		
+	}
+	
+	
+	</script>
+</body>
+</html>
