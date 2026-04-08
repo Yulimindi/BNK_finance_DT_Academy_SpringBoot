@@ -18,7 +18,7 @@ public class MemberController {
 		return ResponseEntity.ok(Map.of("message", "안녀어어어엉 멤버 " + username + "님!"));
 	}
 	
-	@GetMapping("/mypage")
+	@GetMapping("api/mypage")
 	public ResponseEntity<Map<String, String>> mypage(Authentication authentication) {
 		String username = authentication.getName();
 		return ResponseEntity.ok(Map.of("message", "오케이이이잉 " + username + "(이)의 마이페이지양"));

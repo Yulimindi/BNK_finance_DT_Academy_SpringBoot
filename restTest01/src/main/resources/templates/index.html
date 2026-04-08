@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>인덱스에용</h1>
+	<hr>
+	<form id="frm">
+		<input type="text" name="username" value="mar">
+		<input type="text" name="password" value="1234">
+		<button type="button" onclick="login()">로그인</button>
+	</form>
+	
+	<p id="p"></p>
+	
+	<a href="http://localhost:8097/api/member/goMember">멤버 페이지로 숑</a>
+	<a href="http://localhost:8097/api/admin/goAdmin">관리자 페이지로 숑</a>
+	
+	<script th:inline="javascript">
+	
+	
+	if([[${notoken}]] != null) {
+		console.log([[${notoken}]]);
+		alert("로그인이 만료되었습니다. 다시 로그인 해주세요");
+	}
+	
+	const p = document.querySelector("#p");
+	
+	function login() {
+		const form = document.querySelector("#frm");
+		const formData = new FormData(form);
+		
+		fetch("http://localhost:8097/login", {
+			method : "post",
+			body : formData
+		})
+		.then(data => data.json())
+		.then(data => {
+			if(data.message) {
+				p.innerHTML = "아이디 또는 비밀번호가 틀렸습니다.";
+			} else {
+				localStorage.setItem("token", data.token);
+				p.innerHTML = "반가워용 " + data.nickname + "님!";	
+			}
+			
+		})
+	}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rest.mapper.IMemberDao">
+	<select id="login" resultType="com.example.rest.dto.Member">
+		select * from test_tbl where username = #{param1} and password = #{param2}
+	</select>
+	
+	<select id="selectId" resultType="com.example.rest.dto.Member">
+		select * from test_tbl where username = #{param1}
+	</select>
+	
+	<insert id="regist" parameterType="com.example.rest.dto.Member">
+		insert into test_tbl values (#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+</mapper>

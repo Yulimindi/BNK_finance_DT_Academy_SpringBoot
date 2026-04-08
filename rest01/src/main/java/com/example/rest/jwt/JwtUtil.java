@@ -19,12 +19,15 @@ public class JwtUtil {
 	private final SecretKey secretKey;
 	private final long expiration;
 	
+	// expiration : 토큰 만료 시간, secretKey : 서버가 가지고 있는 비밀 키. 토큰을 확인하기 위함
+	// Value : 내 컴퓨터의 설정 파일(application.property)의 값을 가져올 때 사용
 	public JwtUtil(@Value("${jwt.secret}") String secret, @Value("${jwt.expiration}") long expiration) {
 		this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
 		this.expiration = expiration;
 	}
 	
 	// 토큰 생성 (사용자 조건을 담고있음)
+	// claim : jwt 안에 적히는 각각의 정보들을 가져올 수 있음
 	public String generateToken(String username, String role) { // issuedAt : 발생 시점, expiration : 유효 기간
 		return Jwts.builder().subject(username).claim("role", role).issuedAt(new Date()).expiration(new Date(System.currentTimeMillis() + expiration)).signWith(secretKey).compact();
 	}
