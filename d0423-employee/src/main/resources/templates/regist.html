@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form id="frm" method="post" th:action="@{/regist}">
+		사번<input type="text" name="empno"><br>
+		이름<input type="text" name="ename"><br>
+		직급<select name="job"><option value="PRESIDENT">PRESIDENT<option value="MANAGER">MANAGER<option value="ANALYST">ANALYST<option value="CLERK">CLERK<option value="SALESMAN">SALESMAN</select><br>
+		상급자 번호<input type="text" name="mgr"><br>
+		입사일<input type="date" name="hiredate"><br>
+		월급<input type="text" name="sal"><br>
+		뽀나쓰<input type="text" name="comm"><br>
+		부서번호<select name="deptno"><option value="10">ACCOUNTING<option value="20">RESEARCH<option value="30">SALES<option value="40">OPERATIONS</select><br>
+		<input type="submit" value="로그인">
+	</form>
+	
+	<script th:inline="javascript">
+		if([[${result}]] != null) {
+			alert("가입 실패");
+		}
+	</script>
+</body>
+</html>

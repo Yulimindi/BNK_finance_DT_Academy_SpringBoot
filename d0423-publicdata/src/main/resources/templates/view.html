@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>문화재를 봅시댕</h1>
+	<hr>
+	
+	<table border=1>
+		<thead>
+			<tr>
+				<td>DOJIJUNG_NO</td>
+				<td>MYONGCHING</td>
+				<td>MYONGCHING_HANMUN</td>
+				<td>CONTENT</td>
+				<td>MYONJUK</td>
+				<td>SOYOUJA_NAME</td>
+				<td>ADMIN_NAME</td>
+				<td>SIDAE</td>
+				<td>JIJUNG_DATE</td>
+				<td>ADDRESS1</td>
+				<td>fileurl1</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="infos : ${info}">
+				<td th:text="${infos.DOJIJUNG_NO}"></td>
+				<td th:text="${infos.MYONGCHING}"></td>
+				<td th:text="${infos.MYONGCHING_HANMUN}"></td>
+				<td th:text="${infos.CONTENT}"></td>
+				<td th:text="${infos.MYONJUK}"></td>
+				<td th:text="${infos.SOYOUJA_NAME}"></td>
+				<td th:text="${infos.ADMIN_NAME}"></td>
+				<td th:text="${infos.SIDAE}"></td>
+				<td th:text="${infos.JIJUNG_DATE}"></td>
+				<td th:text="${infos.ADDRESS1}"></td>
+				<td><a th:href="${infos.fileurl1}">사진 보기</a></td>
+			</tr>
+		
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>로그인</h1>
+	<form method="post" th:action="@{/login}">
+		사번<input type="text" name="empno"><br>
+		<input type="submit" value="로그인">
+	</form>
+	<hr>
+	
+	
+	<script th:inline="javascript">
+		if([[${result}]] != null) {
+			alert("로그인 실패");
+		}
+	</script>
+</body>
+</html>

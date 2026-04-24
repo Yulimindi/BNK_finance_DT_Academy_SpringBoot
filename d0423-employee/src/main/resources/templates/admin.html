@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>ADMIN PAGE</h1>
+	<a th:href="@{/registPage}">등록 페이지로 가기</a>
+	<table border=1>
+		<thead>
+			<tr>
+				<th>사번</th>
+				<th>이름</th>
+				<th>직급</th>
+				<th>상급자 번호</th>
+				<th>입사일</th>
+				<th>월급</th>
+				<th>뽀나쓰</th>
+				<th>부서번호</th>
+				<th>수정</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="infos : ${info}">
+				<td th:text="${infos.empno}"></td>
+				<td th:text="${infos.ename}"></td>
+				<td th:text="${infos.job}"></td>
+				<td th:text="${infos.mgr}"></td>
+				<td th:text="${infos.hiredate}"></td>
+				<td th:text="${infos.sal}"></td>
+				<td th:text="${infos.comm}"></td>
+				<td th:text="${infos.deptno}"></td>
+				<td><a th:href="@{/updatePage(empno=${infos.empno})}">수정</a></td>
+				<td><a th:href="@{/delete(empno=${infos.empno})}">삭제</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

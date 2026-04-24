@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>유저 정보 업데이트</h1>
+	<form th:action="@{/update}" method="post" th:object="${info}">
+		사번<input type="text" th:field="*{empno}" readonly><br>
+		이름<input type="text" th:field="*{ename}" readonly><br>
+		직급<select th:field="*{job}"><option value="PRESIDENT">PRESIDENT<option value="MANAGER">MANAGER<option value="ANALYST">ANALYST<option value="CLERK">CLERK<option value="SALESMAN">SALESMAN</select><br>
+		상급자 번호<input type="text" th:field="*{mgr}" readonly><br>
+		입사일<input type="date" th:field="*{hiredate}" readonly><br>
+		월급<input type="text" th:field="*{sal}"><br>
+		뽀나쓰<input type="text" th:field="*{comm}"><br>
+		부서번호<select th:field="*{deptno}"><option value="10">ACCOUNTING<option value="20">RESEARCH<option value="30">SALES<option value="40">OPERATIONS</select><br>
+		<input type="submit" value="변경 완료">
+	</form>
+</body>
+</html>

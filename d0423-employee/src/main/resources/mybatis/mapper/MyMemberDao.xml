@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.rest.inter.IMember">
+	<delete id="deleteUser" parameterType="com.example.rest.dto.MemberDto">
+		delete emp where empno = #{param1}
+	</delete>
+	
+	<update id="updateUser" parameterType="com.example.rest.dto.MemberDto">
+		update emp set job = #{param1}, sal = #{param2}, comm = #{param3}, deptno = #{param4} where empno = #{param5}
+	</update>
+</mapper>
